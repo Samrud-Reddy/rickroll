@@ -5,7 +5,7 @@ const path = require('path');
 
 const server = http.createServer((req, res) => {
 
-    const ip = req.connection.remoteAddress;   
+    const ip = req.headers['x-forwarded-for'];   
     console.log(ip)
 
     fs.readFile("index.html", (err, data) => {
