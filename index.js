@@ -2,7 +2,12 @@ const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
+
 const server = http.createServer((req, res) => {
+
+    const ip = req.socket.remoteAddress;
+    console.log(ip)
+
     fs.readFile("index.html", (err, data) => {
         if (err) {
             res.writeHead(500, { 'Content-Type': 'text/plain' });
